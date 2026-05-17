@@ -121,7 +121,7 @@ async function fetchStories() {
 }
 
 function toEnglishNumbers(str) {
-  return str.replace(/[०-९]/g, d => '०१२३४५६७८९'.indexOf(d));
+  return str.replace(/[०-९]/g, d => d.codePointAt(0) - 0x0966);
 }
 
 function renderStoryText(text) {
