@@ -120,8 +120,13 @@ async function fetchStories() {
   return res.json();
 }
 
+function toEnglishNumbers(str) {
+  return str.replace(/[०-९]/g, d => '०१२३४५६७८९'.indexOf(d));
+}
+
 function renderStoryText(text) {
   if (!text) return '';
+  text = toEnglishNumbers(text);
   return text
     .split(/\n{2,}/)
     .map(para => para.trim())
