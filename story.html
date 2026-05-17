@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Itihas — इतिहास</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <a href="index.html" class="back-link">← सभी कहानियाँ</a>
+      </div>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">☀️</button>
+    </div>
+  </header>
+
+  <main>
+    <div id="loading" class="loading">
+      <div class="spinner"></div>
+      <p>Loading story…</p>
+    </div>
+
+    <div id="error" class="error-msg hidden">
+      <p>Story not found.</p>
+      <a href="index.html">← Back to all stories</a>
+    </div>
+
+    <article id="story" class="story-article hidden">
+      <header class="story-header">
+        <h1 id="storyTitle"></h1>
+        <div class="story-meta">
+          <span id="storyWiki"></span>
+          <span id="storyDate"></span>
+        </div>
+      </header>
+      <div id="storyBody" class="story-body"></div>
+    </article>
+  </main>
+
+  <footer>
+    <p>Powered by Wikipedia &amp; Claude · <a href="index.html">← All Stories</a></p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

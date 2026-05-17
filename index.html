@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Itihas — इतिहास</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-hi">इतिहास</span>
+        <span class="logo-en">Itihas</span>
+      </div>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">☀️</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="hero">
+      <h1>Historical Stories</h1>
+      <p class="hero-sub">Parallel lives, connecting eras — written in Hindi</p>
+    </div>
+
+    <div id="loading" class="loading">
+      <div class="spinner"></div>
+      <p>Loading stories…</p>
+    </div>
+
+    <div id="error" class="error-msg hidden">
+      <p>Could not load stories. Please try again later.</p>
+    </div>
+
+    <div id="grid" class="cards-grid hidden"></div>
+  </main>
+
+  <footer>
+    <p>Powered by Wikipedia &amp; Claude · Stories generated in <a href="https://github.com/abhishek-panwar" target="_blank">Itihas</a></p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
