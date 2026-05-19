@@ -305,10 +305,69 @@ footer {
 footer a { color: var(--accent); text-decoration: none; }
 footer a:hover { text-decoration: underline; }
 
+/* ── Section headings ── */
+.section-heading {
+  font-family: var(--font-body);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  margin: 48px 0 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ── Timeline card accent ── */
+.card-timeline {
+  border-left: 3px solid var(--accent);
+}
+
+.timeline-meta {
+  font-family: var(--font-ui);
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+/* ── Chapter nav ── */
+.chapter-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 36px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.chapter-pill {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+
+.chapter-pill:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.chapter-pill.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
 /* ── Responsive ── */
 @media (max-width: 600px) {
   .hero h1 { font-size: 2rem; }
   .story-header h1 { font-size: 1.8rem; }
   .story-body { font-size: 1.05rem; }
   .cards-grid { grid-template-columns: 1fr; }
+  .chapter-nav { gap: 6px; }
+  .chapter-pill { font-size: 0.78rem; padding: 5px 11px; }
 }

@@ -23,8 +23,21 @@ jobs:
             "${SUPABASE_URL}/rest/v1/history_stories?select=id,subject,wikipedia_title,story_text,categories,created_at,updated_at&order=created_at.desc" \
             -H "apikey: ${SUPABASE_ANON_KEY}" \
             -H "Authorization: Bearer ${SUPABASE_ANON_KEY}" \
-            -o stories.json
-          echo "Fetched $(jq length stories.json) stories"
+            -o individual.json
+
+          curl -sf \
+            "${SUPABASE_URL}/rest/v1/timeline_stories?select=id,title,region,year_from,year_to,chapters,full_story,pages_used,created_at,updated_at&order=created_at.desc" \
+            -H "apikey: ${SUPABASE_ANON_KEY}" \
+            -H "Authorization: Bearer ${SUPABASE_ANON_KEY}" \
+            -o timeline.json
+
+          jq -n \
+            --slurpfile ind individual.json \
+            --slurpfile tl  timeline.json \
+            '{ individual: $ind[0], timeline: $tl[0] }' \
+            > stories.json
+
+          echo "Individual: $(jq '.individual | length' stories.json)  Timeline: $(jq '.timeline | length' stories.json)"
 
       - name: Commit stories.json if changed
         run: |
