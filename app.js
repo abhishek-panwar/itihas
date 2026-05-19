@@ -1,4 +1,5 @@
 const DATA_URL = 'stories.json';
+let _cache = null;
 
 // ── Theme ──────────────────────────────────────────────────────────────────
 const themeToggle = document.getElementById('themeToggle');
@@ -26,7 +27,6 @@ if (page === 'index') {
 }
 
 // ── Data fetching ──────────────────────────────────────────────────────────
-let _cache = null;
 async function fetchData() {
   if (_cache) return _cache;
   const res = await fetch(DATA_URL);
