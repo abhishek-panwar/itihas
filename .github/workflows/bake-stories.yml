@@ -17,18 +17,18 @@ jobs:
       - name: Fetch stories from Supabase
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
         run: |
           curl -sf \
             "${SUPABASE_URL}/rest/v1/history_stories?select=id,subject,wikipedia_title,story_text,categories,created_at,updated_at&order=created_at.desc" \
-            -H "apikey: ${SUPABASE_KEY}" \
-            -H "Authorization: Bearer ${SUPABASE_KEY}" \
+            -H "apikey: ${SUPABASE_ANON_KEY}" \
+            -H "Authorization: Bearer ${SUPABASE_ANON_KEY}" \
             -o individual.json
 
           curl -sf \
             "${SUPABASE_URL}/rest/v1/timeline_stories?select=id,title,region,year_from,year_to,chapters,full_story,pages_used,created_at,updated_at&order=created_at.desc" \
-            -H "apikey: ${SUPABASE_KEY}" \
-            -H "Authorization: Bearer ${SUPABASE_KEY}" \
+            -H "apikey: ${SUPABASE_ANON_KEY}" \
+            -H "Authorization: Bearer ${SUPABASE_ANON_KEY}" \
             -o timeline.json
 
           jq -n \
